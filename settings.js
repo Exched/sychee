@@ -8,8 +8,8 @@ const chalk = require('chalk');
 //~~~~~~~~~~~~< GLOBAL SETTINGS >~~~~~~~~~~~~\\
 //settings owner di ./setown.js
 global.packname = 'SychBotz'
-global.owner = ["62882008702155"]
-global.botnum = ["6287862997267"]
+global.owner = ["628884805903"]
+global.botnum = ["6282335794356"]
 global.author = 'ydaa'
 global.owname = 'mzyda'
 global.botname = 'SYCHY BOTz'
