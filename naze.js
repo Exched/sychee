@@ -2,6 +2,7 @@ process.on('uncaughtException', console.error)
 process.on('unhandledRejection', console.error)
 /*
  * Recode By Sychyy @Naze
+ * Recode By exched
  * Follow https://github.com/sychyy
  * Whatsapp : https://wa.me/6287862997267
  */
