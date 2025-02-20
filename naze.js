@@ -6094,6 +6094,37 @@ case 'llama': {
     }
 }
 break;
+case 'sayai': {
+    // Cek apakah ada teks yang dikirim atau teks dari pesan yang dikutip
+    if (!text && (!m.quoted || !m.quoted.text))
+        return sycreply(`Kirim/reply pesan *${prefix + command}* Teksnya`);
+
+    try {
+        // Mengambil teks dari pesan atau pesan yang dikutip
+        const query = text || m.quoted.text;
+
+        // Mengambil respons dari API dengan prompt yang tersimpan
+        const hasil = await fetchJson(
+            `https://api.zukijourney.com/v1/ai/llama?prompt=${encodeURIComponent(llamaPrompt)}&message=${encodeURIComponent(query)}`,
+            {
+                headers: {
+                    'Authorization': `Bearer zu-e5091a5ac49f442ede96f0ad38bbd70f`
+                }
+            }
+        );
+
+        // Mengecek apakah API memberikan respons yang benar
+        if (hasil.status === true && hasil.data) {
+            m.reply(hasil.data); // Mengirim balasan sesuai respons dari API
+        } else {
+            m.reply('Terjadi kesalahan saat mengambil data dari API!');
+        }
+    } catch (error) {
+        m.reply('Terjadi kesalahan saat mengambil data dari API!');
+        console.error('Error saat mengambil data dari API:', error);
+    }
+}
+break;				
 
 // Fungsi untuk mengatur autoai2
 case 'autoai2': {
